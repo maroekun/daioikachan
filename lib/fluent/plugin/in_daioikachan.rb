@@ -64,6 +64,7 @@ module Fluent
       attr_reader :router, :log
 
       def initialize(plugin)
+        require 'rack'
         @router = plugin.router
         @log    = plugin.log
       end
