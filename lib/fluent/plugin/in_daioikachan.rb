@@ -58,13 +58,13 @@ module Fluent
       @server.add_tcp_listener(*opts)
     end
 
+    require 'rack'
     class App
       class BadRequest < StandardError; end
 
       attr_reader :router, :log
 
       def initialize(plugin)
-        require 'rack'
         @router = plugin.router
         @log    = plugin.log
       end
